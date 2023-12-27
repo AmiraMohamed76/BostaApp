@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/ProfileFragment">
+
+    <fragment
+        android:id="@+id/ProfileFragment"
+        android:name="com.amira.bostaapp.ui.profile_fragment.ProfileFragment"
+        android:label="Profile Fragment"
+        tools:layout="@layout/fragment_profile">
+
+        <action
+            android:id="@+id/action_ProfileFragment_to_AlbumFragment"
+            app:destination="@id/AlbumFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/AlbumFragment"
+        android:name="com.amira.bostaapp.ui.album_images_fragment.AlbumImagesFragment"
+        android:label="Album Fragment"
+        tools:layout="@layout/fragment_album_images">
+        <action
+            android:id="@+id/action_AlbumFragment_to_ZoomingImageFragment"
+            app:destination="@id/ZoomingImageFragment" />
+        <argument
+            android:name="albumId"
+            app:argType="string" />
+        <argument
+            android:name="albumTitle"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/ZoomingImageFragment"
+        android:name="com.amira.bostaapp.ui.image_fragment.ZoomingImageFragment"
+        android:label="Zooming Image Fragment"
+        tools:layout="@layout/fragment_zooming_image">
+        <action
+            android:id="@+id/action_ZoomingImageFragment_to_AlbumFragment"
+            app:destination="@id/AlbumFragment" />
+        <argument
+            android:name="imageUrl"
+            app:argType="string" />
+    </fragment>
+</navigation>
